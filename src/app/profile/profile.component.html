@@ -1,0 +1,12 @@
+<div class="profile-container" *ngIf="user; else notLoggedIn">
+    <pre>{{ user | json }}</pre>
+    <h2>Welcome, {{ user.name }}</h2>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Subject:</strong> {{ user.sub }}</p>
+    <button (click)="logout()">Logout</button>
+  </div>
+  
+  <ng-template #notLoggedIn>
+    <p>You are not logged in.</p>
+  </ng-template>
+  
