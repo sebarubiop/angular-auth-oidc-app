@@ -11,7 +11,6 @@ export const authGuard: CanActivateFn = () => {
     return true;
   }
 
- // Redirect to login page instead of calling authService.login() directly
  router.navigate(['/']);
   return false;
 };
