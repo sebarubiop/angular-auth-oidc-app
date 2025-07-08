@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.profile-container {
+  @apply max-w-xl mx-auto mt-16 px-6;
+
+  h2 {
+    @apply text-2xl font-semibold mb-4;
+  }
+
+  p {
+    @apply text-gray-700 mb-2;
+  }
+
+  button {
+    @apply mt-6 px-5 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition;
+  }
+}

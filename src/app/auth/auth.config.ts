@@ -10,20 +10,7 @@ export const authConfig: AuthConfig = {
   responseType: 'code', // Use Authorization Code Flow with PKCE
   scope: 'openid profile email',
   dummyClientSecret,
-  showDebugInformation: true,
   strictDiscoveryDocumentValidation: false,
-  
-  // PKCE Configuration
-  disablePKCE: false,
-  
-  // Remove any client authentication
-  useHttpBasicAuth: false,
-  
-  // Remove any properties that might cause issues
-  requireHttps: false,
-  useSilentRefresh: false,
-  clearHashAfterLogin: true,
-  
   customQueryParams: {
     prompt: 'consent'
   }
