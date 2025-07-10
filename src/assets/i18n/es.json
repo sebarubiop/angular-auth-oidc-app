@@ -1,0 +1,24 @@
+{
+    "nav": {
+      "home": "Inicio",
+      "projects": "Proyectos",
+      "about": "Sobre Mí",
+      "contact": "Contacto"
+    },
+    "home": {
+      "title": "Sebastian es un",
+      "web_designer": "Angular/React",
+      "and": "y",
+      "frontend_developer": "Node.js developer (y más)",
+      "description": "Él crea sitios web responsivos donde las tecnologías se encuentran con la creatividad",
+      "contact_me": "Contáctame",
+      "view_projects": "Ver Proyectos",
+      "open_opportunities": "Abierto a nuevas oportunidades",
+      "responsive_design": "Diseño Responsivo",
+      "responsive_description": "Creando diseños hermosos y mobile-first que funcionan en todos los dispositivos",
+      "modern_tech": "Tecnologías Modernas",
+      "modern_tech_description": "Usando herramientas y frameworks de vanguardia para un rendimiento óptimo",
+      "performance": "Rendimiento",
+      "performance_description": "Optimizado para velocidad y experiencia de usuario en todas las plataformas"
+    }
+  }

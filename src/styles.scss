@@ -3,3 +3,145 @@
 @tailwind utilities;
 
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --primary-color: #8b5cf6;
+    --secondary-color: #a855f7;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--main-bg);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .mat-mdc-button, .mat-mdc-raised-button {
+    border-radius: 8px !important;
+  }
+  
+  .mat-mdc-card {
+    border-radius: 12px !important;
+  }
+
+  /* Global Dark Mode Material Component Fixes */
+  html.dark-theme {
+    /* Ensure Material components get proper dark theme styling */
+    .mat-mdc-slide-toggle {
+      .mdc-switch:not(.mdc-switch--checked) .mdc-switch__track {
+        background-color: #30363d !important;
+        border-color: #30363d !important;
+      }
+      
+      .mdc-switch.mdc-switch--checked .mdc-switch__track {
+        background-color: #8b5cf6 !important;
+        border-color: #8b5cf6 !important;
+      }
+      
+      .mdc-switch__handle {
+        background-color: #8b949e !important;
+      }
+      
+      .mdc-switch.mdc-switch--checked .mdc-switch__handle {
+        background-color: #ffffff !important;
+      }
+    }
+    
+    /* Global icon button styling */
+    .mat-mdc-icon-button {
+      color: #f0f6fc !important;
+      
+      .mat-icon {
+        color: #f0f6fc !important;
+      }
+    }
+    
+    /* Theme toggle specific styling */
+    .theme-toggle {
+      .mat-icon {
+        color: #f0f6fc !important;
+        font-size: 20px !important;
+        width: 20px !important;
+        height: 20px !important;
+      }
+    }
+    
+    /* Mat slide toggle icon fix */
+    .mat-mdc-slide-toggle {
+      .mat-icon {
+        color: #f0f6fc !important;
+        font-size: 18px !important;
+        width: 18px !important;
+        height: 18px !important;
+      }
+    }
+    
+    /* Global menu styling */
+    .mat-mdc-menu-panel {
+      background: #1a1a1a !important;
+      color: #f0f6fc !important;
+    }
+    
+    .mat-mdc-menu-item {
+      color: #f0f6fc !important;
+      
+      &:hover {
+        background-color: #21262d !important;
+      }
+      
+      .mat-icon {
+        color: #8b949e !important;
+      }
+    }
+  }
+
+  /* Global overlay styling */
+  .cdk-overlay-pane {
+    .mat-mdc-menu-panel {
+      background: #1a1a1a !important;
+      color: #f0f6fc !important;
+    }
+  }
+
+  html.dark-theme .cdk-overlay-pane {
+    .mat-mdc-menu-panel {
+      background: #1a1a1a !important;
+      color: #f0f6fc !important;
+      border: 1px solid #30363d !important;
+    }
+  }
+
+  /* Additional Material Icon fixes for dark mode */
+  html.dark-theme {
+    /* Target all Material Icons in dark mode */
+    .material-icons, .mat-icon {
+      color: #f0f6fc !important;
+    }
+    
+    /* Specific targeting for icons in toolbar */
+    .mat-toolbar .mat-icon {
+      color: #f0f6fc !important;
+    }
+    
+    /* Specific targeting for theme toggle */
+    .theme-toggle .mat-icon,
+    .mat-mdc-slide-toggle .mat-icon {
+      color: #f0f6fc !important;
+      opacity: 1 !important;
+    }
+    
+    /* Force visibility for dark_mode and light_mode icons */
+    .mat-icon[fontIcon="dark_mode"],
+    .mat-icon[fontIcon="light_mode"] {
+      color: #f0f6fc !important;
+    }
+  }

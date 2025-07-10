@@ -1,1 +1,102 @@
-<router-outlet></router-outlet>
+<div class="app-container" [class.dark-theme]="themeService.isDarkMode()">
+    <mat-sidenav-container class="sidenav-container">
+      <!-- Sidebar -->
+      <mat-sidenav 
+        #drawer 
+        class="sidenav" 
+        fixedInViewport
+        [attr.role]="isHandset() ? 'dialog' : 'navigation'"
+        [mode]="isHandset() ? 'over' : 'side'"
+        [opened]="!isHandset()"
+        [class.mobile-sidebar]="isHandset()">
+        
+        <mat-toolbar class="sidebar-header">
+          <div class="logo-container">
+            <mat-icon class="logo-icon">code</mat-icon>
+            <span class="logo-text">Sebastian</span>
+          </div>
+        </mat-toolbar>
+        
+        <mat-nav-list class="nav-list">
+          <a mat-list-item routerLink="/home" routerLinkActive="active-link">
+            <mat-icon matListItemIcon>home</mat-icon>
+            <span matListItemTitle>{{ 'nav.home' | translate }}</span>
+          </a>
+          <a mat-list-item routerLink="/projects" routerLinkActive="active-link">
+            <mat-icon matListItemIcon>work</mat-icon>
+            <span matListItemTitle>{{ 'nav.projects' | translate }}</span>
+          </a>
+          <a mat-list-item routerLink="/about" routerLinkActive="active-link">
+            <mat-icon matListItemIcon>person</mat-icon>
+            <span matListItemTitle>{{ 'nav.about' | translate }}</span>
+          </a>
+          <a mat-list-item routerLink="/contact" routerLinkActive="active-link">
+            <mat-icon matListItemIcon>mail</mat-icon>
+            <span matListItemTitle>{{ 'nav.contact' | translate }}</span>
+          </a>
+        </mat-nav-list>
+        
+        <div class="sidebar-footer">
+          <div class="social-links">
+            <a href="https://github.com" target="_blank" aria-label="GitHub">
+              <mat-icon>code</mat-icon>
+            </a>
+            <a href="https://discord.com" target="_blank" aria-label="Discord">
+              <mat-icon>chat</mat-icon>
+            </a>
+            <a href="mailto:contact@elias.dev" aria-label="Email">
+              <mat-icon>mail</mat-icon>
+            </a>
+          </div>
+        </div>
+      </mat-sidenav>
+      
+      <!-- Main Content -->
+      <mat-sidenav-content class="main-content">
+        <!-- Header -->
+        <mat-toolbar class="main-header">
+          <button
+            type="button"
+            aria-label="Toggle sidenav"
+            mat-icon-button
+            (click)="drawer.toggle()"
+            *ngIf="isHandset()">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          </button>
+          
+          <span class="spacer"></span>
+          
+          <!-- Theme Toggle -->
+          <mat-slide-toggle
+            class="theme-toggle"
+            [checked]="themeService.isDarkMode()"
+            (toggleChange)="themeService.toggleTheme()"
+            aria-label="Toggle theme">
+            <mat-icon>{{ themeService.isDarkMode() ? 'light_mode' : 'dark_mode' }}</mat-icon>
+          </mat-slide-toggle>
+          
+          <!-- Language Selector -->
+          <button mat-icon-button [matMenuTriggerFor]="languageMenu" aria-label="Language">
+            <mat-icon>language</mat-icon>
+            <span class="lang-text">{{ currentLanguage().toUpperCase() }}</span>
+          </button>
+          
+          <mat-menu #languageMenu="matMenu">
+            <button mat-menu-item (click)="changeLanguage('en')">
+              <mat-icon>flag</mat-icon>
+              <span>English</span>
+            </button>
+            <button mat-menu-item (click)="changeLanguage('es')">
+              <mat-icon>flag</mat-icon>
+              <span>Español</span>
+            </button>
+          </mat-menu>
+        </mat-toolbar>
+        
+        <!-- Main Content Area -->
+        <main class="content-area">
+          <router-outlet></router-outlet>
+        </main>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
