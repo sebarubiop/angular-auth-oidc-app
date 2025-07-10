@@ -1,0 +1,35 @@
+<!-- Overlay on mobile -->
+@if (openToggle) {
+  <div class="md:hidden" role="dialog">
+    <div class="fixed inset-0 z-40 bg-gray-900 opacity-50" (click)="toggle.emit()">
+      
+    </div>
+    <div class="fixed inset-y-0 left-0 z-50 w-64 bg-indigo-600 text-white p-4 overflow-y-auto">
+      <button class="mb-4 float-right" (click)="toggle.emit()">
+        <span class="material-icons">close</span>
+      </button>
+      <ng-container *ngTemplateOutlet="nav"></ng-container>
+    </div>
+    
+  </div>
+}
+
+<!-- Static on desktop -->
+<div class="hidden md:flex md:w-64 md:flex-col bg-indigo-600 text-white h-full">
+  <div class="flex flex-col h-0 flex-1 p-4">
+    <ng-container *ngTemplateOutlet="nav"></ng-container>
+  </div>
+</div>
+
+
+<ng-template #nav>
+  <h2 class="text-lg font-bold mb-6">My Portfolio</h2>
+  <nav class="space-y-2">
+    @for (item of sidebarItems; track item.route) {
+      <a [routerLink]="item.route" class="block px-3 py-2 rounded hover:bg-indigo-700">
+        <span class="material-icons mr-2">{{ item.icon }}</span>
+        {{ item.label }}
+      </a>
+    }
+  </nav>
+</ng-template>

@@ -3,7 +3,7 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import { AuthService } from './auth/auth.service';
+import { AuthService } from './core/auth/auth.service';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideOAuthClient } from 'angular-oauth2-oidc';
 
